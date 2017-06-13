@@ -96,5 +96,5 @@ function changeTooltip(e) {
     var val = e.value;
     var cur = 18;
 
-    return val + '° ' + "<div>Current "+cur+"°<div>";
+    return val + '° ' + '<div class="current">Current '+cur+'°<div>';
 }

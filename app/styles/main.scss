@@ -4,6 +4,7 @@ $icon-font-path: "../bower_components/bootstrap-sass/assets/fonts/bootstrap/";
 @import "bower_components/bootstrap-sass/assets/stylesheets/_bootstrap.scss";
 // endbower
 
+@import url('https://fonts.googleapis.com/css?family=Roboto');
 
 
 // set colors
@@ -33,12 +34,13 @@ $border-radius-large:       2px !default;
 $border-radius-small:       1.5px !default;
 
 $header-bg: #fff;
-$header-bg-border: #27c073;
+$header-bg-border: #fff;
 $header-text: #2c3e50;
-$bg-color: #2ecc71;
+$bg-color: #16A085;
 
 body{
   background: $bg-color;
+  font-family: Roboto;
 }
 
 #loader{
@@ -60,10 +62,10 @@ body{
 .temperature{
   text-align: center;
   .sliderholder{
-    padding: 20px 0;
+    padding: 60px 0;
     text-align: left;
     margin: 0 auto;
-    width:220px;
+    width:240px;
   }
 }
 
@@ -77,23 +79,30 @@ body{
   margin: -10px 0px 0px -0px;
 }
 #handle1 .rs-tooltip  {
-  top: 50%;
-  font-size: 50px;
+  top: 60%;
+  font-size: 70px;
   color:#fff;
+  font-family: Roboto;
+  border-radius: 0;
 }
-#handle1 .rs-tooltip div  {
+#handle1 .rs-tooltip div.current  {
   text-align: center;
-  background: #2ab662;
+  background: #2ABB9B;
   color: white;
-  border-radius: 4px;
-  margin-top: 40px;
-  font-size: 11px;
+  border-radius: 15px;
+  padding: 2px 0;
+  height: 24px;
+  margin-top: 30px;
+  font-size: 15px;
+  margin-left: auto;
+  margin-right: auto;
+  width:100px;
 }
 #handle1 .rs-range-color  {
   background-color: #fff;
 }
 #handle1 .rs-path-color  {
-  background-color: #2ab662;
+  background-color: #049372;
 }
 #handle1 .rs-border{
   border: #fff;
