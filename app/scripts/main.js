@@ -74,7 +74,10 @@ function loadpage(url, data){
                 min: 5,
                 max: 30,
                 step: 0.1,
-                tooltipFormat: "changeTooltip"
+                tooltipFormat: "changeTooltip",
+                width:18,
+                height:18,
+                radius: 120
             });
 
 
@@ -90,11 +93,8 @@ function loadpage(url, data){
 }
 
 function changeTooltip(e) {
-    var val = e.value, speed;
-    if (val < 20) speed = "Slow";
-    else if (val < 40) speed = "Normal";
-    else if (val < 70) speed = "Speed";
-    else speed = "Very Speed";
+    var val = e.value;
+    var cur = 18;
 
-    return val + '° ' + "<div>Current 18°<div>";
+    return val + '° ' + '<div class="current">Current '+cur+'°<div>';
 }
