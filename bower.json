@@ -1,0 +1,21 @@
+{
+  "name": "assignment-3",
+  "private": true,
+  "dependencies": {
+    "bootstrap-sass": "~3.3.5",
+    "eonasdan-bootstrap-datetimepicker": "^4.17.47"
+  },
+  "overrides": {
+    "bootstrap-sass": {
+      "main": [
+        "assets/stylesheets/_bootstrap.scss",
+        "assets/fonts/bootstrap/*",
+        "assets/javascripts/bootstrap.js"
+      ]
+    }
+  },
+  "devDependencies": {
+    "chai": "^4.0.2",
+    "mocha": "^3.4.2"
+  }
+}

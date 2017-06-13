@@ -1,0 +1,185 @@
+$icon-font-path: "../bower_components/bootstrap-sass/assets/fonts/bootstrap/";
+
+// bower:scss
+@import "bower_components/bootstrap-sass/assets/stylesheets/_bootstrap.scss";
+// endbower
+
+
+
+// set colors
+$gray-base:              #000 !default;
+$gray-darker:            lighten($gray-base, 13.5%) !default; // #222
+$gray-dark:              lighten($gray-base, 20%) !default;   // #333
+$gray:                   lighten($gray-base, 33.5%) !default; // #555
+$gray-light:             lighten($gray-base, 46.7%) !default; // #777
+$gray-lighter:           lighten($gray-base, 93.5%) !default; // #eee
+
+$brand-primary:         #99CC33; // #337ab7
+$brand-success:         #5cb85c !default;
+$brand-info:            #5bc0de !default;
+$brand-warning:         #f0ad4e !default;
+$brand-danger:          #d9534f !default;
+
+//** Border color for inputs
+$input-border-focus: #99CC33 !default;
+$input-border: #ccc;
+
+//** Placeholder text color
+$input-color-placeholder:        #999 !default;
+
+// set border radius
+$border-radius-base:        2px !default;
+$border-radius-large:       2px !default;
+$border-radius-small:       1.5px !default;
+
+$header-bg: #bbe0f7;
+$header-text: #103b7e;
+
+#loader{
+  z-index: 999;
+  position: absolute;
+  left: 0;
+  right:0;
+  top: 0;
+  background: rgba(255,255,255,.9);
+  text-align: center;
+}
+
+.footer {
+  padding-top: 19px;
+  color: #777;
+  text-align: center;
+}
+
+.temperature{
+  text-align: center;
+  .sliderholder{
+    padding: 20px 0;
+    text-align: left;
+    margin: 0 auto;
+    width:160px;
+  }
+}
+
+
+#handle1 .rs-tooltip  {
+  top: 75%;
+  font-size: 11px;
+}
+#handle1 .rs-tooltip div  {
+  text-align: center;
+  background: orange;
+  color: white;
+  border-radius: 4px;
+  padding: 1px 5px 2px;
+  margin-top: 4px;
+}
+#handle1 .rs-range-color  {
+  background-color: #DB5959;
+}
+#handle1 .rs-path-color  {
+  background-color: #F0C5C5;
+}
+
+
+/* Custom page header */
+.header {
+  border-bottom: 2px solid #abcee5;
+  background: $header-bg;
+  padding: 21px;
+  text-align: center;
+  color: $header-text;
+  position: fixed;
+  z-index: 999;
+  left: 0;
+  right: 0;
+
+  /* Make the masthead heading the same height as the navigation */
+  .button-back{
+    font-size: 26px;
+    color: $header-text;
+    position: absolute;
+    left: 0;
+    top:-14px;
+    display: inline-block;
+    height: 44px;
+    padding: 10px;
+  }
+  .button-right{
+    font-size: 26px;
+    color: $header-text;
+    position: absolute;
+    right: 0;
+    top:-14px;
+    display: inline-block;
+    height: 44px;
+    padding: 10px;
+  }
+  h1 {
+    margin-top: 0;
+    margin-bottom: 0;
+    line-height: 20px;
+    font-size: 18px;
+    text-transform: uppercase;
+  }
+}
+
+.has-header{
+  padding-top: 64px;
+}
+
+.header-logo{
+  text-align: center;
+  padding: 50px;
+  .top-bar{
+    position: fixed;
+    z-index: 999;
+    left: 0;
+    right: 0;
+    top: 21px;
+    font-size: 20px;
+    .extra-menu{
+      display: block;
+      cursor: pointer;
+    }
+    .extra-menu .extra-menu-container{
+      display: none;
+    }
+    .extra-menu:hover .extra-menu-container{
+      display: inline-block;
+      background: #fff;
+      border: 1px solid #c0c0c0;
+      float: right;
+      font-size: 14px;
+      list-style-type: none;
+      padding-left: 0;
+      margin-right: 5px;
+      text-align: right;
+      li a{
+        color: #000;
+        text-decoration: none;
+        list-style: none;
+        padding: 10px 20px;
+        display: inline-block;
+      }
+      li:not(:last-child){
+        border-bottom: 1px solid #c0c0c0;
+      }
+    }
+  }
+  img{
+    max-width: 200px;
+    margin: 0 auto;
+  }
+}
+
+/* Responsive: Portrait tablets and up */
+@media screen and (min-width: 768px) {
+  .container {
+    max-width: 760px;
+  }
+
+  body{
+    background-size:760px;
+  }
+}
