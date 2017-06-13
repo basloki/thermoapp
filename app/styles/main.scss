@@ -32,8 +32,14 @@ $border-radius-base:        2px !default;
 $border-radius-large:       2px !default;
 $border-radius-small:       1.5px !default;
 
-$header-bg: #bbe0f7;
-$header-text: #103b7e;
+$header-bg: #fff;
+$header-bg-border: #27c073;
+$header-text: #2c3e50;
+$bg-color: #2ecc71;
+
+body{
+  background: $bg-color;
+}
 
 #loader{
   z-index: 999;
@@ -57,34 +63,46 @@ $header-text: #103b7e;
     padding: 20px 0;
     text-align: left;
     margin: 0 auto;
-    width:160px;
+    width:220px;
   }
 }
 
-
+#handle1 .rs-bg-color{
+  background-color: $bg-color;
+}
+#handle1 .rs-handle{
+  background: #fff;
+  height: 18px;
+  width: 18px;
+  margin: -10px 0px 0px -0px;
+}
 #handle1 .rs-tooltip  {
-  top: 75%;
-  font-size: 11px;
+  top: 50%;
+  font-size: 50px;
+  color:#fff;
 }
 #handle1 .rs-tooltip div  {
   text-align: center;
-  background: orange;
+  background: #2ab662;
   color: white;
   border-radius: 4px;
-  padding: 1px 5px 2px;
-  margin-top: 4px;
+  margin-top: 40px;
+  font-size: 11px;
 }
 #handle1 .rs-range-color  {
-  background-color: #DB5959;
+  background-color: #fff;
 }
 #handle1 .rs-path-color  {
-  background-color: #F0C5C5;
+  background-color: #2ab662;
+}
+#handle1 .rs-border{
+  border: #fff;
 }
 
 
 /* Custom page header */
 .header {
-  border-bottom: 2px solid #abcee5;
+  border-bottom: 2px solid $header-bg-border;
   background: $header-bg;
   padding: 21px;
   text-align: center;
