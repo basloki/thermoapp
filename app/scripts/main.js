@@ -69,7 +69,7 @@ function loadpage(url, data){
                 radius: 80,
                 circleShape: "pie",
                 sliderType: "min-range",
-                value: "20",
+                value: get('targetTemperature','target_temperature'),
                 startAngle: 315,
                 min: 5,
                 max: 30,
@@ -96,5 +96,6 @@ function changeTooltip(e) {
     var val = e.value;
     var cur = get('currentTemperature','current_temperature');
 
-    return val + '° ' + '<div class="current">Currently '+cur+'°<div>';
+    put('targetTemperature','target_temperature', val);
+    return val + '° ' + '<div class="current">Currently '+cur+'°<div>';    
 }
