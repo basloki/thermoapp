@@ -94,7 +94,7 @@ function loadpage(url, data){
 
 function changeTooltip(e) {
     var val = e.value;
-    var cur = 18;
+    var cur = get('currentTemperature','current_temperature');
 
-    return val + '° ' + '<div class="current">Current '+cur+'°<div>';
+    return val + '° ' + '<div class="current">Currently '+cur+'°<div>';
 }
