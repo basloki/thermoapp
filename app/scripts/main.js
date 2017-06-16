@@ -69,7 +69,7 @@ function loadpage(url, data){
         radius: 80,
         circleShape: "pie",
         sliderType: "min-range",
-        value: 0,
+        value: get('targetTemperature','target_temperature'),
         startAngle: 315,
         min: 5,
         max: 30,
@@ -79,7 +79,7 @@ function loadpage(url, data){
         height:18,
         create: setTemperature(),
         radius: 120,
-        change:  put('targetTemperature','target_temperature', parseFloat($("#handle1").roundSlider("getValue"))),
+        change:  setTemperature()
       });
 
 
@@ -104,7 +104,8 @@ function changeTooltip(e) {
 function setTemperature(){
 
   console.log('set temp');
-  var target = get('targetTemperature','target_temperature');
+  var target = $("#handle1").roundSlider("getValue");
+  put('targetTemperature','target_temperature', target)
   var e = {value:target}
   changeTooltip(e);
   console.log('target '+ target);
