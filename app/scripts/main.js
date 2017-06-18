@@ -47,7 +47,7 @@ function loadpage(url, data){
 
       $('#holder').find('a.ajax-link').click(function(){
         //window.history.pushState($(this).attr('href'), '', $(this).attr('href'));
-        window.history.pushState($(this).attr('href'), '', 'start.html');
+        window.history.pushState($(this).attr('href'), '', 'index.html');
         loadpage(location.origin+'/'+$(this).attr('href'));
         return false;
       });
@@ -65,22 +65,130 @@ function loadpage(url, data){
         loadpage($('form').attr('action'), data);
       });
 
-      $("#handle1").roundSlider({
-        radius: 80,
-        circleShape: "pie",
-        sliderType: "min-range",
-        value: get('targetTemperature','target_temperature'),
-        startAngle: 315,
-        min: 5,
-        max: 30,
-        step: 0.1,
-        tooltipFormat: "changeTooltip",
-        width:18,
-        height:18,
-        create: setTemperature(),
-        radius: 120,
-        change:  setTemperature()
-      });
+      console.log(url);
+
+      if(url == location.origin+'/'+'temperature.html') {
+        $("#handle1").roundSlider({
+          tooltipFormat: function (e) {
+            var val;
+            if(!e)
+              val = '...';
+            else
+              val = e.value;
+
+            //put('targetTemperature','target_temperature', val);
+            return val + '° ' + '<div class="current">Currently <span id="current_temp">...</span>°<div>';
+          },
+          radius: 120,
+          circleShape: "pie",
+          sliderType: "min-range",
+          value: get('targetTemperature','target_temperature'),
+          startAngle: 315,
+          min: 5,
+          max: 30,
+          step: 0.1,
+          width:30,
+          height:30,
+          create: setTemperature(),
+          change: setTemperature()
+        });
+      }
+
+      if(url == location.origin+'/'+'history.html') {
+        var chart = new CanvasJS.Chart("chartContainer",
+          {
+            title: {
+              text: "Annual Expenses"
+            },
+            animationEnabled: true,
+            axisY: {
+              includeZero: false,
+              prefix: "$ "
+            },
+            toolTip: {
+              shared: true,
+              content: "<span style='\"'color: {color};'\"'><strong>{name}</strong></span> <span style='\"'color: dimgrey;'\"'>${y}</span> "
+            },
+            legend: {
+              fontSize: 13
+            },
+            data: [
+              {
+                type: "splineArea",
+                showInLegend: true,
+                name: "Salaries",
+                color: "rgba(54,158,173,.6)",
+                dataPoints: [
+                  {x: new Date('Mon'), y: 30000},
+                  {x: new Date('Tue'), y: 35000},
+                  {x: new Date('Wed'), y: 30000},
+                  {x: new Date('Thu'), y: 30400},
+                  {x: new Date('Fri'), y: 20900},
+                  {x: new Date('Sat'), y: 31000},
+                  {x: new Date('Sun'), y: 30200}
+                ]
+              },
+              {
+                type: "splineArea",
+                showInLegend: true,
+                name: "Office Cost",
+                color: "rgba(134,180,2,.7)",
+                dataPoints: [
+                {x: new Date('Mon'), y: 30000},
+                {x: new Date('Tue'), y: 35000},
+                {x: new Date('Wed'), y: 30000},
+                {x: new Date('Thu'), y: 30400},
+                {x: new Date('Fri'), y: 20900},
+                {x: new Date('Sat'), y: 31000},
+                {x: new Date('Sun'), y: 30200}
+
+                ]
+              },
+              {
+                type: "splineArea",
+                showInLegend: true,
+                name: "Entertainment",
+                color: "rgba(194,70,66,.6)",
+                dataPoints: [
+                {x: new Date('Mon'), y: 30000},
+                {x: new Date('Tue'), y: 35000},
+                {x: new Date('Wed'), y: 30000},
+                {x: new Date('Thu'), y: 30400},
+                {x: new Date('Fri'), y: 20900},
+                {x: new Date('Sat'), y: 31000},
+                {x: new Date('Sun'), y: 30200}
+
+                ]
+              },
+              {
+                type: "splineArea",
+                showInLegend: true,
+                color: "rgba(127,96,132,.6)",
+                name: "Maintenance",
+                dataPoints: [
+                  {x: new Date(2012, 2), y: 1700},
+                  {x: new Date(2012, 3), y: 2600},
+                  {x: new Date(2012, 4), y: 1000},
+                  {x: new Date(2012, 5), y: 1400},
+                  {x: new Date(2012, 6), y: 900},
+                  {x: new Date(2012, 7), y: 1000},
+                  {x: new Date(2012, 8), y: 1200},
+                  {x: new Date(2012, 9), y: 5000},
+                  {x: new Date(2012, 10), y: 1300},
+                  {x: new Date(2012, 11), y: 2300},
+                  {x: new Date(2013, 0), y: 2800},
+                  {x: new Date(2013, 1), y: 1300}
+
+                ]
+              }
+
+            ]
+          });
+
+        chart.render();
+      }
+
+      console.log(getWeekProgram());
 
 
 
@@ -95,7 +203,11 @@ function loadpage(url, data){
 }
 
 function changeTooltip(e) {
-  var val = e.value;
+  var val;
+  if(!e)
+    val = '...';
+  else
+    val = e.value;
 
   //put('targetTemperature','target_temperature', val);
   return val + '° ' + '<div class="current">Currently <span id="current_temp">...</span>°<div>';
@@ -105,9 +217,8 @@ function setTemperature(){
 
   console.log('set temp');
   var target = $("#handle1").roundSlider("getValue");
-  put('targetTemperature','target_temperature', target)
-  var e = {value:target}
-  changeTooltip(e);
+  //put('targetTemperature','target_temperature', target);
+  changeTooltip(false);
   console.log('target '+ target);
   $("#handle1").roundSlider("setValue",target);
   var cur = get('currentTemperature','current_temperature');

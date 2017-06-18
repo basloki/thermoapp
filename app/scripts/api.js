@@ -7,12 +7,12 @@ var ServerUrl = 'http://wwwis.win.tue.nl/2id40-ws/56';
 //Backup server
 //var ServerUrl = 'http://pcwin889.win.tue.nl/2id40-ws/100';
 
-Type = {
+var Type = {
     Day : 'day',
     Night : 'night'
 };
 
-Days = {
+var Days = {
     Monday : 'Monday',
     Tuesday : 'Tuesday',
     Wednesday : 'Wednesday',
