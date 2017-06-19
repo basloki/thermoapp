@@ -35,7 +35,7 @@ $border-radius-small:       1.5px !default;
 
 $header-bg: #fff;
 $header-bg-border: #fff;
-$header-text: #5e5e5e;
+$header-text: #2c3e50;
 $bg-color: #16A085;
 
 body{
@@ -49,7 +49,6 @@ body{
   left: 0;
   right:0;
   top: 0;
-  bottom:0;
   background: rgba(255,255,255,.9);
   text-align: center;
 }
@@ -97,7 +96,7 @@ body{
   font-size: 15px;
   margin-left: auto;
   margin-right: auto;
-  width:120px;
+  width:100px;
 }
 #handle1 .rs-range-color  {
   background-color: #fff;
@@ -114,7 +113,7 @@ body{
 .header {
   border-bottom: 2px solid $header-bg-border;
   background: $header-bg;
-  padding: 21px 0 0;
+  padding: 21px;
   text-align: center;
   color: $header-text;
   position: fixed;
@@ -147,34 +146,59 @@ body{
     margin-top: 0;
     margin-bottom: 0;
     line-height: 20px;
-    font-size:20px;
-    border-bottom: 1px solid #f1f1f1;
-    padding-bottom: 21px;
+    font-size: 18px;
+    text-transform: uppercase;
   }
-
-  .top-menu{
-    padding: 0 15px;
-  }
-  .top-menu a{
-    font-size:32px;
-    color: $header-text;
-    padding-top: 15px;
-    border-right: 1px solid #f1f1f1;
-  }
-  .top-menu a:hover, .top-menu a.active{
-    text-decoration: none;
-    color: #2ABB9B;
-  }
-  .top-menu a:first-child{
-    border-left: 1px solid #f1f1f1;
-  }
-
 }
 
 .has-header{
-  padding-top: 125px;
+  padding-top: 64px;
 }
 
+.header-logo{
+  text-align: center;
+  padding: 50px;
+  .top-bar{
+    position: fixed;
+    z-index: 999;
+    left: 0;
+    right: 0;
+    top: 21px;
+    font-size: 20px;
+    .extra-menu{
+      display: block;
+      cursor: pointer;
+    }
+    .extra-menu .extra-menu-container{
+      display: none;
+    }
+    .extra-menu:hover .extra-menu-container{
+      display: inline-block;
+      background: #fff;
+      border: 1px solid #c0c0c0;
+      float: right;
+      font-size: 14px;
+      list-style-type: none;
+      padding-left: 0;
+      margin-right: 5px;
+      text-align: right;
+      li a{
+        color: #000;
+        text-decoration: none;
+        list-style: none;
+        padding: 10px 20px;
+        display: inline-block;
+      }
+      li:not(:last-child){
+        border-bottom: 1px solid #c0c0c0;
+      }
+    }
+  }
+  img{
+    max-width: 200px;
+    margin: 0 auto;
+  }
+}
 
 /* Responsive: Portrait tablets and up */
 @media screen and (min-width: 768px) {
