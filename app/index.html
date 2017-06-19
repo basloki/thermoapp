@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <title>ThermoApp</title>
   <meta name="description" content="">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
 
   <link rel="shortcut icon" href="/favicon.ico">
   <link rel="apple-touch-icon" href="/apple-touch-icon.png">
@@ -18,7 +18,7 @@
   <!-- build:css(.tmp) styles/main.css -->
   <link rel="stylesheet" href="styles/roundslider.min.css">
   <link rel="stylesheet" href="styles/main.css">
-  <link rel="stylesheet" href="/bower_components/material-icons/css/material-icons.min.css">
+  <link rel="stylesheet" href="styles/material-icons.min.css">
   <link rel="stylesheet" href="/bower_components/eonasdan-bootstrap-datetimepicker/build/css/bootstrap-datetimepicker.min.css" />
   <!-- endbuild -->
 
@@ -30,7 +30,7 @@
 </div>
 
 <div id="loader">
-  <img src="images/hourglass.svg" style="width: 100px; margin-top: 100px;"/>
+  <img src="images/hourglass.svg" style="width: 100px; margin-top: 150px;"/>
 </div>
 
 <!-- build:js(.) scripts/vendor.js -->
@@ -55,13 +55,15 @@
 <script src="/bower_components/bootstrap-sass/assets/javascripts/bootstrap/collapse.js"></script>
 <script src="/bower_components/bootstrap-sass/assets/javascripts/bootstrap/tab.js"></script>
 <script src="/bower_components/eonasdan-bootstrap-datetimepicker/build/js/bootstrap-datetimepicker.min.js"></script>
-<script src="/bower_components/waypoints/lib/jquery.waypoints.min.js"></script>
 <!-- endbuild -->
 
+<script src="scripts/jquery.canvasjs.min.js"></script>
 
 <!-- build:js scripts/main.js -->
 <script src="scripts/roundslider.min.js"></script>
 <script src="scripts/main.js"></script>
+<script src="scripts/frontend.js"></script>
+<script src="scripts/api.js"></script>
 <!-- endbuild -->
 
 <!-- Google Analytics: change UA-XXXXX-X to be your site's ID. -->
