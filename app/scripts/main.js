@@ -171,9 +171,16 @@ function setTemperature(){
   put('targetTemperature','target_temperature', target);
 
   changeTooltip(false);
-  
+
   $("#handle1").roundSlider("setValue",target);
   var cur = get('currentTemperature','current_temperature');
+
+  //Make a fix for multiple connected devices
+  var curSet = get('targetTemperature','target_temperature');
+    if(curSet != null && curSet != target) {
+      $("#handle1").roundSlider("setValue", curSet);
+      setTemperature();
+    }
 
   $("#current_temp").text(cur);
   setTimeout(function () {
