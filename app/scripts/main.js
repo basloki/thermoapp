@@ -167,17 +167,16 @@ function changeTooltip(e) {
 }
 
 function setTemperature(){
-
-  console.log('set temp');
   var target = $("#handle1").roundSlider("getValue");
-  //put('targetTemperature','target_temperature', target);
+  put('targetTemperature','target_temperature', target);
+
   changeTooltip(false);
-  console.log('target '+ target);
+  
   $("#handle1").roundSlider("setValue",target);
   var cur = get('currentTemperature','current_temperature');
-  console.log('cur '+ cur);
+
   $("#current_temp").text(cur);
   setTimeout(function () {
     setTemperature();
-  },1000);
+  },100);
 }
