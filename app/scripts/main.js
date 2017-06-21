@@ -119,18 +119,18 @@ function loadpage(url, data){
                 color: "rgba(127,96,132,.6)",
                 name: "Costs",
                 dataPoints: [
-                  {x: new Date(2012, 2), y: 170},
-                  {x: new Date(2012, 3), y: 260},
-                  {x: new Date(2012, 4), y: 100},
-                  {x: new Date(2012, 5), y: 140},
-                  {x: new Date(2012, 6), y: 90},
-                  {x: new Date(2012, 7), y: 100},
-                  {x: new Date(2012, 8), y: 120},
-                  {x: new Date(2012, 9), y: 500},
+                  {x: new Date(2012, 2), y: 300},
+                  {x: new Date(2012, 3), y: 100},
+                  {x: new Date(2012, 4), y: 80},
+                  {x: new Date(2012, 5), y: 60},
+                  {x: new Date(2012, 6), y: 65},
+                  {x: new Date(2012, 7), y: 55},
+                  {x: new Date(2012, 8), y: 65},
+                  {x: new Date(2012, 9), y: 80},
                   {x: new Date(2012, 10), y: 130},
                   {x: new Date(2012, 11), y: 230},
                   {x: new Date(2013, 0), y: 280},
-                  {x: new Date(2013, 1), y: 130}
+                  {x: new Date(2013, 1), y: 340}
 
                 ]
               }
