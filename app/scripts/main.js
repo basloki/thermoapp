@@ -1,4 +1,4 @@
-$(document).ready(function () {
+﻿$(document).ready(function () {
   $('#input_birth').datetimepicker({
     viewMode: 'years',
     format: 'DD/MM/YYYY',
@@ -113,71 +113,24 @@ function loadpage(url, data){
               fontSize: 13
             },
             data: [
-              {
-                type: "splineArea",
-                showInLegend: true,
-                name: "Salaries",
-                color: "rgba(54,158,173,.6)",
-                dataPoints: [
-                  {x: new Date('Mon'), y: 30000},
-                  {x: new Date('Tue'), y: 35000},
-                  {x: new Date('Wed'), y: 30000},
-                  {x: new Date('Thu'), y: 30400},
-                  {x: new Date('Fri'), y: 20900},
-                  {x: new Date('Sat'), y: 31000},
-                  {x: new Date('Sun'), y: 30200}
-                ]
-              },
-              {
-                type: "splineArea",
-                showInLegend: true,
-                name: "Office Cost",
-                color: "rgba(134,180,2,.7)",
-                dataPoints: [
-                {x: new Date('Mon'), y: 30000},
-                {x: new Date('Tue'), y: 35000},
-                {x: new Date('Wed'), y: 30000},
-                {x: new Date('Thu'), y: 30400},
-                {x: new Date('Fri'), y: 20900},
-                {x: new Date('Sat'), y: 31000},
-                {x: new Date('Sun'), y: 30200}
-
-                ]
-              },
-              {
-                type: "splineArea",
-                showInLegend: true,
-                name: "Entertainment",
-                color: "rgba(194,70,66,.6)",
-                dataPoints: [
-                {x: new Date('Mon'), y: 30000},
-                {x: new Date('Tue'), y: 35000},
-                {x: new Date('Wed'), y: 30000},
-                {x: new Date('Thu'), y: 30400},
-                {x: new Date('Fri'), y: 20900},
-                {x: new Date('Sat'), y: 31000},
-                {x: new Date('Sun'), y: 30200}
-
-                ]
-              },
-              {
+             {
                 type: "splineArea",
                 showInLegend: true,
                 color: "rgba(127,96,132,.6)",
-                name: "Maintenance",
+                name: "Costs",
                 dataPoints: [
-                  {x: new Date(2012, 2), y: 1700},
-                  {x: new Date(2012, 3), y: 2600},
-                  {x: new Date(2012, 4), y: 1000},
-                  {x: new Date(2012, 5), y: 1400},
-                  {x: new Date(2012, 6), y: 900},
-                  {x: new Date(2012, 7), y: 1000},
-                  {x: new Date(2012, 8), y: 1200},
-                  {x: new Date(2012, 9), y: 5000},
-                  {x: new Date(2012, 10), y: 1300},
-                  {x: new Date(2012, 11), y: 2300},
-                  {x: new Date(2013, 0), y: 2800},
-                  {x: new Date(2013, 1), y: 1300}
+                  {x: new Date(2012, 2), y: 170},
+                  {x: new Date(2012, 3), y: 260},
+                  {x: new Date(2012, 4), y: 100},
+                  {x: new Date(2012, 5), y: 140},
+                  {x: new Date(2012, 6), y: 90},
+                  {x: new Date(2012, 7), y: 100},
+                  {x: new Date(2012, 8), y: 120},
+                  {x: new Date(2012, 9), y: 500},
+                  {x: new Date(2012, 10), y: 130},
+                  {x: new Date(2012, 11), y: 230},
+                  {x: new Date(2013, 0), y: 280},
+                  {x: new Date(2013, 1), y: 130}
 
                 ]
               }
