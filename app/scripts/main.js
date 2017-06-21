@@ -168,8 +168,10 @@ function changeTooltip(e) {
 
 function setTemperature(){
   var target = $("#handle1").roundSlider("getValue");
-  put('targetTemperature','target_temperature', target);
-
+  if(target != null && typeof target == 'number') {
+    put('targetTemperature','target_temperature', target);
+    console.log(typeof target);
+  }
   changeTooltip(false);
 
   $("#handle1").roundSlider("setValue",target);
@@ -177,7 +179,7 @@ function setTemperature(){
 
   //Make a fix for multiple connected devices
   var curSet = get('targetTemperature','target_temperature');
-    if(curSet != null && curSet != target) {
+    if(curSet != null && curSet != target && typeof target == 'number' && typeof curset == 'number') {
       $("#handle1").roundSlider("setValue", curSet);
       setTemperature();
     }
