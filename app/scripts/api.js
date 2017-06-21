@@ -3,7 +3,7 @@
  *
  */
 //Change 100 to your group number
-var ServerUrl = 'http://wwwis.win.tue.nl/2id40-ws/56';
+var ServerUrl = 'https://wwwis.win.tue.nl/2id40-ws/56';
 //Backup server
 //var ServerUrl = 'http://pcwin889.win.tue.nl/2id40-ws/100';
 

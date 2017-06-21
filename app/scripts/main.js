@@ -173,7 +173,7 @@ function mainRun() {
 
   setTimeout(function() {
     mainRun();
-  }, 250);
+  }, 100);
 
 }
 
@@ -185,7 +185,9 @@ function changeTemperature(e) {
 
 function setTime() {
   var time = get('time','time');
+  var day = get('day','current_day');
   document.getElementById("time").innerHTML = time;
+  document.getElementById("day").innerHTML = day;
 }
 
 function setCurrentTemp() {
