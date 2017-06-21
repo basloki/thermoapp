@@ -82,15 +82,15 @@ function loadpage(url, data){
           radius: 120,
           circleShape: "pie",
           sliderType: "min-range",
-          value: get('targetTemperature','target_temperature'),
+          value: parseFloat(get('targetTemperature','target_temperature')),
           startAngle: 315,
           min: 5,
           max: 30,
           step: 0.1,
           width:30,
           height:30,
-          create: setTemperature(),
-          change: setTemperature()
+          create: mainRun(),
+          change: function (e) { changeTemperature(e); }
         });
       }
 
@@ -166,26 +166,37 @@ function changeTooltip(e) {
   return val + '° ' + '<div class="current">Currently <span id="current_temp">...</span>°<div>';
 }
 
-function setTemperature(){
-  var target = $("#handle1").roundSlider("getValue");
-  if(target != null && typeof target == 'number') {
-    put('targetTemperature','target_temperature', target);
-    console.log(typeof target);
-  }
+function mainRun() {
+  setTime();
+  setCurrentTemp();
+  checkTempSet();
+
+  setTimeout(function() {
+    mainRun();
+  }, 250);
+
+}
+
+function changeTemperature(e) {
+  var temp = e.value;
+  put('targetTemperature', 'target_temperature', temp);
   changeTooltip(false);
+}
 
-  $("#handle1").roundSlider("setValue",target);
+function setTime() {
+  var time = get('time','time');
+  document.getElementById("time").innerHTML = time;
+}
+
+function setCurrentTemp() {
   var cur = get('currentTemperature','current_temperature');
-
-  //Make a fix for multiple connected devices
-  var curSet = get('targetTemperature','target_temperature');
-    if(curSet != null && curSet != target && typeof target == 'number' && typeof curset == 'number') {
-      $("#handle1").roundSlider("setValue", curSet);
-      setTemperature();
-    }
-
   $("#current_temp").text(cur);
-  setTimeout(function () {
-    setTemperature();
-  },100);
+}
+
+function checkTempSet() {
+  var curSet = get('targetTemperature','target_temperature');
+  var val = $("#handle1").roundSlider("getValue");
+  if(val != curSet) {
+    $("#handle1").roundSlider("setValue",curSet)
+  }
 }

@@ -70,6 +70,16 @@ body{
   }
 }
 
+div.time {
+  float: right;
+  display: block;
+  z-index: 999;
+  position: fixed;
+  right: 30em;
+  top: 6em;
+  font-size: x-large;
+}
+
 #handle1 .rs-bg-color{
   background-color: $bg-color;
 }
