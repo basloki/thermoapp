@@ -150,6 +150,25 @@ function loadpage(url, data){
           $(this).tab('show');
         })
 
+        //Control the Weekprogram button
+        $('#programbtn').bootstrapToggle({
+          onstyle: "success",
+          offstyle: "danger",
+          on: "Enabled",
+          off: "Disabled"
+        });
+
+        $('#programbtn').bootstrapToggle(get('weekProgramState','week_program_state'));
+        $('#programbtn').change(function() {
+          if( $(this).prop('checked') ) {
+            put('weekProgramState','week_program_state', 'on');
+          }
+          else {
+            put('weekProgramState','week_program_state', 'off');
+          }
+        });
+
+
         // get and fill in week program
         getWeekProgram();
         console.log(Program);
@@ -284,7 +303,7 @@ function initProgram() {
   });
 
   $('.delete-switch-row').click(function () {
-    var c = confirm("Are you sure to delete this switch?");
+    var c = confirm("Are you sure you want to delete this switch?");
     if(c) {
       $('#' + $(this).data('row')).remove();
       $("input[type=time]:first").trigger('change');
