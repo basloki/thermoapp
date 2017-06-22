@@ -141,8 +141,37 @@ function loadpage(url, data){
         chart.render();
       }
 
+
       if(url == location.origin+'/'+'schedule.html') {
-        console.log(getWeekProgram());
+
+        // activate tabs
+        $('#schedulelist a').click(function (e) {
+          e.preventDefault()
+          $(this).tab('show');
+        })
+
+        // get and fill in week program
+        getWeekProgram();
+        console.log(Program);
+        initProgram();
+
+        $('.add-switch-button').unbind('click').click(function () {
+          if (Program[$(this).data('day')].length == 0) {
+            Program[$(this).data('day')].push(['00:00', '00:00']);
+            console.log(Program);
+            initProgram();
+          } else if (Program[$(this).data('day')].length < 5) {
+            var currentSwitch = Program[$(this).data('day')][Program[$(this).data('day')].length - 1];
+            Program[$(this).data('day')].push([currentSwitch[1], currentSwitch[1]]);
+            console.log(Program);
+            initProgram();
+          } else if (Program[$(this).data('day')].length >= 5){
+            alert('You can only add up to five switches per day');
+          }
+        });
+
+
+
         // get and set the day temperature
         $('#day-temp').val(get('dayTemperature', 'day_temperature'));
         // get and set the night temperature
@@ -216,4 +245,53 @@ function checkTempSet() {
   if(val != curSet) {
     $("#handle1").roundSlider("setValue",curSet)
   }
+}
+
+function makeSwitchHTML(index, dayTime, nightTime) {
+  var x = Math.floor((Math.random() * 100000) + 1);
+  return '<div class="row switch-row" id="row_'+x+'">' +
+    '<div class="col-xs-5"><img src="images/sun.png"><input type="time" name="'+index+'-day" class="day-time-opt" value="'+dayTime+'"/></div>' +
+    '<div class="col-xs-5"><img src="images/moon.png"><input type="time" name="'+index+'-night" class="night-time-opt" value="'+nightTime+'"/></div>' +
+    '<div class="col-xs-2 text-right"><i class="mi mi-close delete-switch-row" data-row="row_'+x+'"></i></div>' +
+  '</div>';
+}
+
+function initProgram() {
+  Object.keys(Program).forEach(function(el){
+    $('#'+el).find('.switch-rows').html('');
+    Program[el].forEach(function (swi, index) {
+      $('#'+el).find('.switch-rows').append(makeSwitchHTML(index, swi[0], swi[1]));
+    });
+    if(Program[el].length >= 5)
+      $('#'+el).find('.delete-switch-row').attr("disabled", "disabled");
+  });
+
+  $("input[type=time]").change(function () {
+    Object.keys(Program).forEach(function(el){
+      Program[el] = [];
+      $('#'+el).find('.switch-row').each(function () {
+        console.log([$(this).find('.day-time-opt').val(), $(this).find('.night-time-opt').val()]);
+        Program[el].push([$(this).find('.day-time-opt').val(), $(this).find('.night-time-opt').val()]);
+      });
+      if(Program[el].length >= 5)
+        $('#'+el).find('.delete-switch-row').attr("disabled", "disabled");
+      else
+        $('#'+el).find('.delete-switch-row').removeAttr("disabled");
+    });
+    //set program
+    console.log('set program');
+    setWeekProgram();
+  });
+
+  $('.delete-switch-row').click(function () {
+    var c = confirm("Are you sure to delete this switch?");
+    if(c) {
+      $('#' + $(this).data('row')).remove();
+      $("input[type=time]:first").trigger('change');
+    }
+  });
+
+
+
+
 }
