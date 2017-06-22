@@ -103,11 +103,11 @@ function loadpage(url, data){
             animationEnabled: true,
             axisY: {
               includeZero: false,
-              prefix: "$ "
+              prefix: "€ "
             },
             toolTip: {
               shared: true,
-              content: "<span style='\"'color: {color};'\"'><strong>{name}</strong></span> <span style='\"'color: dimgrey;'\"'>${y}</span> "
+              content: "<span style='\"'color: {color};'\"'><strong>{name}</strong></span> <span style='\"'color: dimgrey;'\"'>&#8364;{y}</span> "
             },
             legend: {
               fontSize: 13
@@ -117,7 +117,7 @@ function loadpage(url, data){
                 type: "splineArea",
                 showInLegend: true,
                 color: "rgba(127,96,132,.6)",
-                name: "Costs",
+                name: "Energy Costs",
                 dataPoints: [
                   {x: new Date(2012, 2), y: 300},
                   {x: new Date(2012, 3), y: 100},
