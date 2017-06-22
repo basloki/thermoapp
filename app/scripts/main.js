@@ -310,7 +310,18 @@ function initProgram() {
     }
   });
 
+  $('.reset-schedule-button').click(function() {
+    var c = confirm("Are you really sure you want to reset your schedule? This action cannot be reverted!");
+    if(c) {
+      setDefault();
+      getWeekProgram();
+      initProgram();
+      if( $('#programbtn').prop('checked') ) {
+        $('#programbtn').bootstrapToggle('off');
+        put('weekProgramState','week_program_state','off');
 
-
-
+      }
+    }
+  });
 }
+

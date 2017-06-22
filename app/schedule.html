@@ -46,6 +46,7 @@
       <li role="presentation"><a href="#Friday" aria-controls="Friday" role="tab" data-toggle="tab">Fri</a></li>
       <li role="presentation"><a href="#Saturday" aria-controls="Saturday" role="tab" data-toggle="tab">Sat</a></li>
       <li role="presentation"><a href="#Sunday" aria-controls="Sunday" role="tab" data-toggle="tab">Sun</a></li>
+      <li role="presentation" style="float:right;"><a href="#Reset" aria-controls="Reset" role="tab" data-toggle="tab"><strong>Reset Schedule</strong></a></li>
     </ul>
 
     <!-- Tab panes -->
@@ -90,6 +91,13 @@
         <div class="switch-rows"></div>
         <div class="row">
           <div class="col-xs-12"><button class="add-switch-button btn btn-default" data-day="Sunday">Add Time Switch</button> </div>
+        </div>
+      </div>
+      <div role="tabpanel" class="tab-pane" id="Reset">
+        <div class="row">
+          Are you sure you want to reset your schedule?
+          <p style="color: red;">This will reset all hours to 00:00!</p>
+          <div class="col-xs-12"><button class="reset-schedule-button btn btn-default" id="reset-schedule-button">Yes, reset my schedule!</button></div>
         </div>
       </div>
     </div>
