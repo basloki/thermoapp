@@ -34,7 +34,7 @@ $border-radius-large:       2px !default;
 $border-radius-small:       1.5px !default;
 
 $header-bg: #fff;
-$header-bg-border: #fff;
+$header-bg-border: #f1f1f1;
 $header-text: #5e5e5e;
 $bg-color: #16A085;
 
@@ -62,12 +62,43 @@ body{
 
 .temperature{
   text-align: center;
+  .datetimeholder{
+    padding: 30px;
+  }
   .sliderholder{
-    padding: 60px 0;
     text-align: left;
     margin: 0 auto;
     width:240px;
   }
+  color: #fff;
+}
+
+.schedule{
+  text-align: center;
+  .daynightholder{
+    margin-top: 10px;
+    background: #fff;
+    padding: 10px;
+    font-size: 24px;
+    img{
+      width: 50px;
+      display: block;
+      margin: 0 auto;
+    }
+    h3{
+      font-size: 14px;
+    }
+    input[type=number]{
+      width: 60px;
+      display: inline;
+      text-align: right;
+      font-size: 24px;
+      padding: 0;
+      border: none;
+      box-shadow: none;
+    }
+  }
+
 }
 
 div.time {

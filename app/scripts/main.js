@@ -26,7 +26,7 @@ function loadpage(url, data){
    console.log(head);
    });*/
 
-  jQuery.ajax({'url': url, isLocal: true, data: data, type: 'get',
+  jQuery.ajax({'url': url, async: true, isLocal: true, data: data, type: 'get',
     success: function(str){
 
       console.log(str);
@@ -141,7 +141,22 @@ function loadpage(url, data){
         chart.render();
       }
 
-      console.log(getWeekProgram());
+      if(url == location.origin+'/'+'schedule.html') {
+        console.log(getWeekProgram());
+        // get and set the day temperature
+        $('#day-temp').val(get('dayTemperature', 'day_temperature'));
+        // get and set the night temperature
+        $('#night-temp').val(get('nightTemperature', 'night_temperature'));
+
+        $('#day-temp').change(function () {
+          put('dayTemperature', 'day_temperature', $(this).val());
+        });
+        $('#night-temp').change(function () {
+          put('nightTemperature', 'night_temperature', $(this).val());
+        });
+      }
+
+      //console.log(getWeekProgram());
 
 
 
@@ -173,7 +188,7 @@ function mainRun() {
 
   setTimeout(function() {
     mainRun();
-  }, 100);
+  }, 200);
 
 }
 
