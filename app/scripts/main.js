@@ -89,7 +89,7 @@ function loadpage(url, data){
           step: 0.1,
           width:30,
           height:30,
-          create: mainRun(),
+          create: mainRun(url),
           change: function (e) { changeTemperature(e); }
         });
       }
@@ -229,15 +229,16 @@ function changeTooltip(e) {
   return val + '° ' + '<div class="current">Currently <span id="current_temp">...</span>°<div>';
 }
 
-function mainRun() {
+function mainRun(url) {
+  if(url == location.origin+'/'+'temperature.html') {
   setTime();
   setCurrentTemp();
   checkTempSet();
 
   setTimeout(function() {
-    mainRun();
+    mainRun(url);
   }, 200);
-
+  }
 }
 
 function changeTemperature(e) {
