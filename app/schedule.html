@@ -18,6 +18,8 @@
 
 <div class="has-header schedule">
 
+<div class="programstatebtn" style="margin-top: 15px;">Week Program: <input type="checkbox" id="programbtn" data-toggle="toggle"></div>
+
   <div class="daynightholder">
     <div class="row">
       <div class="col-xs-6">
@@ -33,20 +35,19 @@
     </div>
   </div>
 
-  <div class="programstatebtn">Week Program: <input type="checkbox" id="programbtn" data-toggle="toggle"></div>
 
   <div class="scheduleholder">
 
     <!-- Nav tabs -->
     <ul class="nav nav-tabs" role="tablist" id="schedulelist">
-      <li role="presentation" class="active"><a href="#Monday" aria-controls="Monday" role="tab" data-toggle="tab">Mon</a></li>
-      <li role="presentation"><a href="#Tuesday" aria-controls="Tuesday" role="tab" data-toggle="tab">Tue</a></li>
-      <li role="presentation"><a href="#Wednesday" aria-controls="Wednesday" role="tab" data-toggle="tab">Wed</a></li>
-      <li role="presentation"><a href="#Thursday" aria-controls="Thursday" role="tab" data-toggle="tab">Thu</a></li>
-      <li role="presentation"><a href="#Friday" aria-controls="Friday" role="tab" data-toggle="tab">Fri</a></li>
-      <li role="presentation"><a href="#Saturday" aria-controls="Saturday" role="tab" data-toggle="tab">Sat</a></li>
-      <li role="presentation"><a href="#Sunday" aria-controls="Sunday" role="tab" data-toggle="tab">Sun</a></li>
-      <li role="presentation" style="float:right;"><a href="#Reset" aria-controls="Reset" role="tab" data-toggle="tab"><strong>Reset Schedule</strong></a></li>
+      <li role="presentation" class="active"><a href="#Monday" aria-controls="Monday" role="tab" data-toggle="tab">Mo</a></li>
+      <li role="presentation"><a href="#Tuesday" aria-controls="Tuesday" role="tab" data-toggle="tab">Tu</a></li>
+      <li role="presentation"><a href="#Wednesday" aria-controls="Wednesday" role="tab" data-toggle="tab">We</a></li>
+      <li role="presentation"><a href="#Thursday" aria-controls="Thursday" role="tab" data-toggle="tab">Th</a></li>
+      <li role="presentation"><a href="#Friday" aria-controls="Friday" role="tab" data-toggle="tab">Fr</a></li>
+      <li role="presentation"><a href="#Saturday" aria-controls="Saturday" role="tab" data-toggle="tab">Sa</a></li>
+      <li role="presentation"><a href="#Sunday" aria-controls="Sunday" role="tab" data-toggle="tab">Su</a></li>
+      <li role="presentation" style="float:right;"><a href="#Reset" aria-controls="Reset" role="tab" data-toggle="tab"><strong>Reset</strong></a></li>
     </ul>
 
     <!-- Tab panes -->
@@ -95,9 +96,13 @@
       </div>
       <div role="tabpanel" class="tab-pane" id="Reset">
         <div class="row">
-          Are you sure you want to reset your schedule?
-          <p style="color: red;">This will reset all hours to 00:00!</p>
-          <div class="col-xs-12"><button class="reset-schedule-button btn btn-default" id="reset-schedule-button">Yes, reset my schedule!</button></div>
+          <div class="col-xs-12">
+            <p style="padding: 10px;">Are you sure you want to reset your schedule?</p>
+            <p style="color: red;">This will reset all hours to 00:00!</p>
+            <p>
+              <button class="reset-schedule-button btn btn-default" id="reset-schedule-button">Yes, reset my schedule</button>
+            </p>
+          </div>
         </div>
       </div>
     </div>
