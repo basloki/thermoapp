@@ -12,24 +12,9 @@
 
 function loadpage(url, data){
   $('#loader').show();
-  // $('#holder').hide();
-
-  // if(data == null){
-  // 	data = [];
-  // }
-
-  // window.clearTimeout(timer);
-
-  /*$.ajax({url: url, data: data, type : 'post'}).done(function(data, statusText, xhr){
-   var status = xhr.status;                //200
-   var head = xhr.getAllResponseHeaders(); //Detail header info
-   console.log(head);
-   });*/
 
   jQuery.ajax({'url': url, async: true, isLocal: true, data: data, type: 'get',
     success: function(str){
-
-      console.log(str);
 
       $('#loader').hide();
 
@@ -60,12 +45,9 @@ function loadpage(url, data){
       $('form.ajax-link').on('submit', function(e) { //use on if jQuery 1.7+
         e.preventDefault();  //prevent form from submitting
         var data = $("form").serializeArray();
-        console.log(data); //use the console for debugging, F12 in Chrome, not alerts
 
         loadpage($('form').attr('action'), data);
       });
-
-      console.log(url);
 
       if(url == location.origin+'/'+'temperature.html') {
         $("#handle1").roundSlider({
@@ -171,18 +153,15 @@ function loadpage(url, data){
 
         // get and fill in week program
         getWeekProgram();
-        console.log(Program);
         initProgram();
 
         $('.add-switch-button').unbind('click').click(function () {
           if (Program[$(this).data('day')].length == 0) {
             Program[$(this).data('day')].push(['00:00', '00:00']);
-            console.log(Program);
             initProgram();
           } else if (Program[$(this).data('day')].length < 5) {
             var currentSwitch = Program[$(this).data('day')][Program[$(this).data('day')].length - 1];
             Program[$(this).data('day')].push([currentSwitch[1], currentSwitch[1]]);
-            console.log(Program);
             initProgram();
           } else if (Program[$(this).data('day')].length >= 5){
             alert('You can only add up to five switches per day');
@@ -203,15 +182,10 @@ function loadpage(url, data){
           put('nightTemperature', 'night_temperature', $(this).val());
         });
       }
-
-      //console.log(getWeekProgram());
-
-
-
     },
     error: function(xhr, status) {
-      console.log(url);
-      console.log(xhr);
+      console.log('ERROR: ' + url);
+      console.log('ERROR: ' + xhr);
       $('#loader').hide();
       $('#holder').html(xhr.responseText);
     }
@@ -237,7 +211,7 @@ function mainRun(url) {
 
   setTimeout(function() {
     mainRun(url);
-  }, 200);
+  }, 1000);
   }
 }
 
@@ -290,7 +264,6 @@ function initProgram() {
     Object.keys(Program).forEach(function(el){
       Program[el] = [];
       $('#'+el).find('.switch-row').each(function () {
-        console.log([$(this).find('.day-time-opt').val(), $(this).find('.night-time-opt').val()]);
         Program[el].push([$(this).find('.day-time-opt').val(), $(this).find('.night-time-opt').val()]);
       });
       if(Program[el].length >= 5)
@@ -299,8 +272,13 @@ function initProgram() {
         $('#'+el).find('.delete-switch-row').removeAttr("disabled");
     });
     //set program
-    console.log('set program');
+    var weekEn = get('weekProgramState', 'week_program_state');
     setWeekProgram();
+
+    if(weekEn === 'on') {
+      put('weekProgramState','week_program_state','on');
+    }
+
   });
 
   $('.delete-switch-row').click(function () {
