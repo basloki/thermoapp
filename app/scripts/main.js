@@ -211,7 +211,7 @@ function mainRun(url) {
 
   setTimeout(function() {
     mainRun(url);
-  }, 1000);
+  }, 100);
   }
 }
 
